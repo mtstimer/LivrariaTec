@@ -1,11 +1,14 @@
 export class Produto{
     id: string;
     titulo: string;
-    descricao: string;
-    autor: string;
-    editora: string;
-    genero: string;
+    descricao: string; 
     quantidade: number;
     preco: number;
+
     imagens: string[];
+    tags:  string[];
+
+    //idAutor: string;
+    //idEditora: string;
+    idGenero: string;
 }
