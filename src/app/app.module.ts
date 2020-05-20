@@ -7,21 +7,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FlexLayoutModule} from '@angular/flex-layout';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { EdicaoGeneroComponent } from './edicao-genero/edicao-genero.component';
 import { CadastroGeneroComponent } from './cadastro-genero/cadastro-genero.component';
+import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [
     AppComponent,
     EdicaoGeneroComponent,
-    CadastroGeneroComponent
+    CadastroGeneroComponent,
+    CadastroProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +41,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule, 
+    MatSelectModule
 
   ],
   providers: [],
