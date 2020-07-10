@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { GenerosService } from '../services/generos.service';
+import { EditorasService } from '../services/editoras.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { Genero } from '../models/genero.model';
+import { Editora } from '../models/editora.model';
 
 @Component({
-  selector: 'app-edicao-genero',
-  templateUrl: './edicao-genero.component.html',
-  styleUrls: ['./edicao-genero.component.scss']
+  selector: 'app-edicao-editora',
+  templateUrl: './edicao-editora.component.html',
+  styleUrls: ['./edicao-editora.component.scss']
 })
-export class EdicaoGeneroComponent implements OnInit {
+export class EdicaoEditoraComponent implements OnInit {
 
-    idGenero: string;
-    genero: Genero;
+    idEditora: string;
+    editora: Editora;
 
     formulario = this.formBuilder.group({
         nome: ['', Validators.required]
@@ -22,7 +22,7 @@ export class EdicaoGeneroComponent implements OnInit {
 
     constructor(
         private formBuilder: FormBuilder,
-        private generosService: GenerosService,
+        private editorasService: EditorasService,
         private activedRoute: ActivatedRoute,
         private snackBar: MatSnackBar,
         private location: Location,
@@ -32,10 +32,10 @@ export class EdicaoGeneroComponent implements OnInit {
 
         this.formulario.disable();
 
-        this.idGenero = this.activedRoute.snapshot.paramMap.get('id');
-        this.genero = await this.generosService.get(this.idGenero);
+        this.idEditora = this.activedRoute.snapshot.paramMap.get('id');
+        this.editora = await this.editorasService.get(this.idEditora);
 
-        this.formulario.patchValue(this.genero);
+        this.formulario.patchValue(this.editora);
 
         this.formulario.enable();
 
@@ -43,25 +43,25 @@ export class EdicaoGeneroComponent implements OnInit {
 
     async submit() {
 
-        if (!this.formulario.valid || !this.genero) {
+        if (!this.formulario.valid || !this.editora) {
             return;
         }
 
         this.formulario.disable();
 
-        const generoEditado = this.formulario.value as Genero;
-        generoEditado.dataEdicao = new Date();
+        const editoraEditado = this.formulario.value as Editora;
+        editoraEditado.dataEdicao = new Date();
 
-        await this.generosService.update(this.idGenero, generoEditado);
+        await this.editorasService.update(this.idEditora, editoraEditado);
 
         console.log('Um estilo foi editado -------------------------');
         console.log('Genero:');
-        console.log(this.genero);
+        console.log(this.editora);
         console.log('Campos atualizados:');
-        console.log(generoEditado);
+        console.log(editoraEditado);
 
 
-        Object.assign(this.genero, generoEditado);
+        Object.assign(this.editora, editoraEditado);
 
         this.formulario.enable();
 
@@ -72,4 +72,5 @@ export class EdicaoGeneroComponent implements OnInit {
     voltar() {
         this.location.back();
     }
+
 }

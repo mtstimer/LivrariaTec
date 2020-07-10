@@ -34,7 +34,7 @@
 
           <mat-form-field appearance="outline" class="input-valor">
             <mat-label>Preco</mat-label>
-            <input matInput formControlName="valor" name="valor">
+            <input matInput formControlName="preco" name="preco">
             <mat-icon matPrefix>attach_money</mat-icon>
             <mat-error *ngIf="formulario.controls['preco'].hasError('required')">O valor é obrigatório
             </mat-error>
@@ -69,9 +69,9 @@
   
         <div fxLayout="row">
   
-          <!-- <button mat-button color="accent" class="uppercase" type="button" (click)="voltar()">
+          <button mat-button color="accent" class="uppercase" type="button" (click)="voltar()">
             Voltar
-          </button> -->
+          </button>
   
           <button mat-button color="accent" class="uppercase" type="reset">
             Limpar

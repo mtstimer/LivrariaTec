@@ -20,6 +20,9 @@ import { environment } from 'src/environments/environment';
 import { EdicaoGeneroComponent } from './edicao-genero/edicao-genero.component';
 import { CadastroGeneroComponent } from './cadastro-genero/cadastro-genero.component';
 import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { CadastroEditoraComponent } from './cadastro-editora/cadastro-editora.component';
+import { EdicaoEditoraComponent } from './edicao-editora/edicao-editora.component';
+import { EdicaoProdutoComponent } from './edicao-produto/edicao-produto.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
     AppComponent,
     EdicaoGeneroComponent,
     CadastroGeneroComponent,
-    CadastroProdutoComponent
+    CadastroProdutoComponent,
+    CadastroEditoraComponent,
+    EdicaoEditoraComponent,
+    EdicaoProdutoComponent
   ],
   imports: [
     BrowserModule,

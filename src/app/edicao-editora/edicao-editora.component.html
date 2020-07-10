@@ -4,13 +4,13 @@
         <mat-card-header>
 
             <div mat-card-avatar class="avatar" fxLayout fxLayoutAlign="center center">
-                <mat-icon>book</mat-icon>
+                <mat-icon>house</mat-icon>
             </div>
 
-            <mat-card-title>Genero</mat-card-title>
-            <mat-card-subtitle *ngIf="genero">
-                Cadastrado em {{genero.dataCadastro | date:'short'}}.
-                <span *ngIf="genero.dataEdicao"> Última edição feita em {{genero.dataEdicao | date:'short'}}</span>
+            <mat-card-title>Editora</mat-card-title>
+            <mat-card-subtitle *ngIf="editora">
+                Cadastrado em {{editora.dataCadastro | date:'short'}}.
+                <span *ngIf="editora.dataEdicao"> Última edição feita em {{editora.dataEdicao | date:'short'}}</span>
             </mat-card-subtitle>
 
         </mat-card-header>

@@ -5,6 +5,8 @@ import { Produto } from '../models/produto.model';
 import { Observable } from 'rxjs';
 import { Genero } from '../models/genero.model';
 import { GenerosService } from '../services/generos.service';
+import { Editora } from '../models/editora.model';
+import { EditorasService } from '../services/editoras.service';
 
 @Component({
   selector: 'app-cadastro-produto',
@@ -14,11 +16,15 @@ import { GenerosService } from '../services/generos.service';
 export class CadastroProdutoComponent implements OnInit {
   
   generos: Observable<Genero[]>;
+  editoras: Observable<Editora[]>;
 
   formulario = this.formBuilder.group({
     nome: ['', Validators.required],
     descricao: ['', Validators.required],
-    idGenero: ['', Validators.required]
+    quantidade: ['', Validators.required],
+    preco: ['', Validators.required],
+    idGenero: ['', Validators.required],
+    idEditora: ['', Validators.required]
   });
 
   @ViewChild(FormGroupDirective) formGroupDirective: FormGroupDirective;
@@ -26,11 +32,13 @@ export class CadastroProdutoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private produtosService: ProdutosService,
-    private generosService: GenerosService
+    private generosService: GenerosService,
+    private editorasService: EditorasService
   ) { }
 
   ngOnInit(): void {
     this.generos = this.generosService.getObservable();
+    this.editoras = this.editorasService.getObservable();
   }
 
   async submit() {
